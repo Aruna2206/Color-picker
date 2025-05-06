@@ -189,6 +189,30 @@ function ColorPicker() {
             </div>
           </div>
         )}
+        {/* Pen Tool Canvas */}
+        <div className="canvas-container">
+          <h2>✏️ Pen Tool</h2>
+          <canvas
+            ref={canvasRef}
+            width={500}
+            height={300}
+            onMouseDown={startDrawing}
+            onMouseMove={draw}
+            onMouseUp={stopDrawing}
+            onMouseOut={stopDrawing}
+          />
+          <div className="actions">
+            <button onClick={clearCanvas} className="reset-button">
+              🧹 Clear Canvas
+            </button>
+            <label>Pen Color:</label>
+            <input
+              type="color"
+              value={penColor}
+              onChange={(e) => setPenColor(e.target.value)}
+            />
+          </div>
+        </div>
       </div>
     </>
   );
